@@ -1,0 +1,28 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Mis Mensajes
+{% endblock %}
+
+{% block formulario %}
+<div class="container">
+    {% if mensajes %}
+    <div class="container">
+        {% for mensaje in mensajes %}
+            <h3>**************************************</h3>
+            <h3>DE:      {{mensaje.emisor}}</h3>
+            <h3>PARA:    {{mensaje.destinatario}}</h3>
+            <h3>MENSAJE: {{mensaje.mensaje}}</h3>
+            <h3>RECIBIDO:{{mensaje.fechaEnvio}}</h3>
+            <h3>**************************************</h3>
+            <a href="{% url 'EliminarMensaje' mensaje.id %}">Eliminar</a>
+            <br>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+    <h3>No se obtuvieron resultados de mensajes</h3>
+{% endif %}
+{% endblock %}

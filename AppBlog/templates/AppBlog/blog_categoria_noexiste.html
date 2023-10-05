@@ -1,0 +1,48 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+{% block buscador %}
+<form action="/AppBlog/blog_categoria/" method="GET">
+    <table>
+        <p> Categoria: <input type = "text" name="categoria"> <input type = "submit" value="Buscar"></p>
+    </table>
+ </form> 
+{% endblock %}
+
+{% block titulo %}
+<h1><center> Destinos Turisticos : {{categoria}} </center></h1>
+<br>
+<br>
+{% endblock %}
+
+{% block formulario %}
+{% if res %}
+    <div class="container text-center">
+        <div class="row">
+                {% for publicacion in res %}
+                <div class="col-sm-6 align-items-center">
+                    <div class="card-body">
+                        {% if publicacion.imagenPublicacion %}
+                        <img src="{{publicacion.imagenPublicacion.url}}" class="" width="250px">
+                        {% endif %}
+                        <h1>{{publicacion.titulo}}</h1>
+                        <h3>{{publicacion.subtitulo}}</h3>
+                        <h6>Categoria: {{publicacion.categoria}}</h6>
+                        <a href="{% url 'BlogDetalle' publicacion.id %}"><i class="bi bi-eye"></i>ver detalle</a>
+                        {% if request.user.is_superuser %}
+                        <a href="{% url 'BlogActualizacion' publicacion.id %}"><i class="bi bi-eye"></i>modificar</a>
+                        <a href="{% url 'BlogEliminacion' publicacion.id %}"><i class="bi bi-eye"></i>eliminar</a>
+                        {% endif %}
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <h3>No se obtuvieron resultados de esta categoria: {{categoria}} </h3>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Sugerencias Recibidas
+{% endblock %}
+
+{% block formulario %}
+<div class="container">
+    {% if sugerencias %}
+    <div class="container">
+        {% for sugerencia in sugerencias %}
+            <h3>**************************************</h3>
+            <h3>DE:      {{sugerencia.usuario}}</h3>
+            <h3>MENSAJE: {{sugerencia.detalle}}</h3>
+            <h3>RECIBIDO:{{sugerencia.fechaEnvio}}</h3>
+            <h3>**************************************</h3>
+            <a href="{% url 'EliminarSugerencia' sugerencia.id %}">Eliminar</a>
+            <br>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+    <h3>No se obtuvieron resultados de sugerencias</h3>
+{% endif %}
+{% endblock %}

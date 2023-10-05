@@ -1,0 +1,36 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Detalle deL usuario: {{user.username}}<p>
+
+{% endblock %}
+
+{% block formulario %}
+    {% if object %}
+    <div class="container">
+        <div class="form-group">
+            <h3>Los resultados son: </h3>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>first name</th>
+                    <th>Last name</th>
+                </tr>
+                <tr>
+                    <td>{{ object.id }} </td>
+                    <td>{{ object.username }} </td>
+                    <td>{{ object.email }} </td>
+                    <td>{{ object.first_name }} </td>
+                    <td>{{ object.last_name }} </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% else %}
+        <h3>No se obtuvieron detalles del usuario </h3>
+    {% endif %}
+{% endblock %}

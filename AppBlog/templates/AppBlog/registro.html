@@ -1,0 +1,24 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Bienvenido al regsitro de usuarios
+{% endblock %}
+
+{% block formulario %}
+<div class="container">
+    <div class="form-group">
+        <form action="" method="POST"> {% csrf_token %}
+            <table>
+                {{ res.as_table}}
+            </table>
+            <input type = "submit" value="Registrar Usuario">
+        </form> 
+    </div>
+    <br>
+    <div class="container text-center">
+        <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia Sesión</a></p>
+    </div>
+</div>
+{% endblock %}

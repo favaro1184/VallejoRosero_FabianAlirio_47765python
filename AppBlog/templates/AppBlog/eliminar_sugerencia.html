@@ -1,0 +1,15 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Eliminar Sugerencia
+{% endblock %}
+
+{% block formulario %}
+<form action="" method="POST"> {% csrf_token %}
+    <p> Estas seguro de borrar la sugerencia seleccionada? {{object.usuario}}
+
+    <input type = "submit" value="Eliminar">
+ </form> 
+{% endblock %}

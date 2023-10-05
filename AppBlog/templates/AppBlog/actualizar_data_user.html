@@ -1,0 +1,16 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Actualizar datos del usuario: {{user.username}}
+{% endblock %}
+
+{% block formulario %}
+<form action="" method="POST"> {% csrf_token %}
+    <table>
+        {{ form.as_table}}
+    </table>
+    <input type = "submit" value="Guardar">
+ </form> 
+{% endblock %}

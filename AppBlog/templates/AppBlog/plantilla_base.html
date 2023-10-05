@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog Destinos Turisticos</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'AppBlog/assets/favicon.ico' %}" /> 
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppBlog/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            {% if request.user.is_superuser %}
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">MENU ADMIN</div>
+                <div class="list-group list-group-flush">
+                    {% if request.user.is_superuser %}
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'BlogCreacion' %}">Crear Publicacion</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'ConsultarSugerencia' %}">Consultar Sugerencias</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="http://127.0.0.1:8000/admin/">AdminConsole</a>
+                    {% endif%}
+                </div>
+            </div>
+            {% endif%}
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        {% block buscador %}
+                        {% endblock %}
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                {% if request.user.is_authenticated %}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'Inicio' %}">Home</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'BlogPage' %}">Blog</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mensajes</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'EnviarMensaje' %}">Enviar Mensaje</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'ConsultarMensaje' %}">Consultar Mensajes</a>
+                                    </div>
+                                </li>
+                                {% if not request.user.is_superuser %}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'EnviarSugerencia' %}">Enviar Sugerencia</a></li>
+                                {% endif%}
+                                {% endif%}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'AboutMe' %}">About Me</a></li>
+                            </ul>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                {% if not request.user.is_authenticated %}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                                {% endif%}
+                                {% if request.user.is_authenticated %}
+                                {% with user.avatar_set.last as miAvatar%}
+                                {% if miAvatar%}
+                                <img src="{{miAvatar.imagen.url}}" alt="No se encontro imagen" style="max-width: 50px;">
+                                {% endif%}
+                                {% endwith %}
+                                <li class="nav-item"><a class="nav-link">hola, {{user.username}}</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editar Usuario</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'DetalleUsuario' user.id %}">Detalle Usuario</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'ActualizarDataUser' user.id %}">Actualizar Datos</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'ActualizarPasswordUser' user.id %}">Actualizar Password</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{% url 'CargarAvatar' %}">Cargar Avatar</a>
+                                    </div>
+                                </li>
+                                {% endif%}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="mt-4">
+                        {% block titulo %}
+                        {% endblock %}
+                    </h1>
+                    <p>
+                    {% block formulario %}
+                    {% endblock %}
+                </div>
+                <footer class="p-5 bg-dark text-white text-center position-relative margin-auto">
+                    <div class="container">
+                        <p class="lead text-white">Copyright &copy; 2023 Fabian Vallejo</p>
+                        <a href="" class="position-absolute bottom-0 end-0 p-5">
+                            <i class="bi bi-arrow-up-circle h1"></i>
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'AppBlog/js/scripts.js' %}"></script>
+    </body>
+</html>

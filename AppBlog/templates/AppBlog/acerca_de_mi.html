@@ -1,0 +1,29 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+{% endblock %}
+
+{% block formulario %}
+<div class="card mb-3" style="max-width: 800px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{% static 'AppBlog/assets/img/yo.jpg' %}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Fabian Alirio Vallejo Rosero</h5>
+          <p class="card-text">Ingeniero de Sistemas y Telematica</p>
+          <p class="card-text">Palmira - Valle, Colombia</p>
+          <p class="card-text">Soy un apasionado por el desarrollo de Software, cuento con mas de 16 años de experiencia trabajando en diferentes empresas como Developer,
+            en lenguajes de programacion como Java, C#, Python, procesos ETL en ODI y Datastage. He sido tambien administrador de sistemas de informacion, he estado tambien
+            en grupos de soporte a usuarios liderando equipos. fuera del ambito laboral, me gusta mucho tambien el Futbol y practicarlo cuando puedo, me gusta mucho ver 
+            peliculas y bailar, salsa principalmente</p>
+          <p class="card-text"><small class="text-muted">Última actualización hace 3 minutos</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

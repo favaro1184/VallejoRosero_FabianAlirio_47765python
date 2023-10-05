@@ -1,0 +1,15 @@
+{% extends "AppBlog/plantilla_base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Eliminar Mensaje
+{% endblock %}
+
+{% block formulario %}
+<form action="" method="POST"> {% csrf_token %}
+    <p> Estas seguro de borrar el mensaje seleccionado? {{object.emisor}}
+
+    <input type = "submit" value="Eliminar">
+ </form> 
+{% endblock %}
