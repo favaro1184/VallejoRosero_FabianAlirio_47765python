@@ -56,3 +56,4 @@ en el archivo excel llamado "Casos de prueba.xlsx" se encuentra el detalle de la
 
 VIDEO:
 Se subio un video llamado ExplicacionProyecto.mp4 en el cual esta la explicacion del proyecto. (el viedo esta incluido en el repositorio en github)
+https://drive.google.com/file/d/1HV7SDT6BY09QrrdftDoX-2_AJ_cA_m8Z/view?usp=sharing
