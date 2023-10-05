@@ -1,7 +1,7 @@
 # VallejoRosero_FabianAlirio_47765python
 Trabajo final Certificación Python CoderHouse
 
-DESCRIPCION DEL PROYECTO
+DESCRIPCION DEL PROYECTO:
 Blog de destinos turisticos
 
 Diseñe una pagina en la cual se pueden publicar destinos turisticos. La publicaciones solo seran realizadas por un usuario con perfil de admin, los demas usuarios solo podran visualizar las publicaciones en el blog. por defecto al cargar la pagina pide loguearse en la aplicacion. si no se cuenta con usuario se puede registrar (los usuarios creados por esta opcion no quedan con perfil de administrador). las paginas de aboutme, login, logout y registro no piden autenticacion
@@ -26,3 +26,16 @@ desde la pagina Enviar Sugerencia puede enviarle sugerencias al admin de la pagi
 desde el dropdownlist Editar Usuario puede ver el detalle del usuario, actualizar datos, actualizar password y cargar su avatar.
 
 En la pagina BLOG se implemento el BUSCADOR. este funciona filtrando por el campo categorias del modelo Publicacion (Por defecto hay 3, playas, hoteles, otro)
+
+MODELOS CREADOS EN EL PROYECTO:
+Publicacion
+Comentario
+Mensaje
+Avatar
+Sugerencia
+
+USUARIO ADMINISTRADOR(SUPER USER): admin
+PASSWORD SUPER USER: admin123*
+
+usuario de prueba(no admin): andres
+PASSWORD: admin123*
