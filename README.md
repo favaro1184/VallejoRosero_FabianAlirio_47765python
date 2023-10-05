@@ -37,5 +37,22 @@ Sugerencia
 USUARIO ADMINISTRADOR(SUPER USER): admin
 PASSWORD SUPER USER: admin123*
 
-usuario de prueba(no admin): andres
+USUARIO DE PRUEBA(no admin): andres
 PASSWORD: admin123*
+
+TECNOLOGIAS UTILIZADAS:
+Front-End:
+HTML 5
+CSS 3
+Javascript 
+Bootstrap 
+Back-End:
+Python 
+Django
+Pillow
+
+CASOS DE PRUEBA:
+en el archivo excel llamado "Casos de prueba.xlsx" se encuentra el detalle de las pruebas registradas
+
+VIDEO:
+Se subio un video llamado ExplicacionProyecto.mp4 en el cual esta la explicacion del proyecto. (el viedo esta incluido en el repositorio en github)
